@@ -1,0 +1,18 @@
+{
+  "name": "03-asincronismo-con-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "callback": "node src/callback/challenge.js"
+  },
+  "keywords": [
+    "Javascript"
+  ],
+  "author": "Adrian Rugel - adrianrugel34@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
