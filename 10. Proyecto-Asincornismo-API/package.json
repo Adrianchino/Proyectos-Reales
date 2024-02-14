@@ -1,6 +1,7 @@
 {
   "name": "03-asincronismo-con-javascript",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "callback": "node src/callback/challenge.js"
@@ -13,9 +14,5 @@
   "dependencies": {
     "node-fetch": "^3.3.2",
     "xmlhttprequest": "^1.8.0"
-  },
-  "devDependencies": {
-    "gh-pages": "^6.1.1"
-  },
-  "description": ""
+  }
 }
