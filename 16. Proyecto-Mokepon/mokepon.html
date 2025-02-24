@@ -1,47 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>MOKEPON!</title>
-    </head>
-    <body>
-        <h1>MOKEPON! 🔥💧🌱</h1>
+  <head>
+    <meta name="viewport" charset="utf-8" />
+    <title>MOKEPON!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="mascotas" id="seleccionar-mascota">
+      <h1 class="title">MOKEPON!</h1>
 
-        <section id="seleccionar-mascota">
-            <h2>Elige tu mascota:</h2>
+      <h2 class="subtitulo">Elige tu mascota:</h2>
 
-            <input type="radio" name="mascota" id="hipodoge" /> 
-            <label for="hipodoge">Hipodoge</label> <br>
-            
-            <input type="radio" name="mascota" id="capipepo" /> 
-            <label for="capipepo">Capipepo</label> <br>
-            
-            <input type="radio" name="mascota" id="ratigueya" /> 
-            <label for="ratigueya">Ratigueya</label> <br><br>
+      <div class="tarjetas">
+        <input type="radio" name="mascota" id="hipodoge" />
+        <label class="tarjeta-mokepon" for="hipodoge">
+          <h2>Hipodoge</h2>
+          <img src="./assets/agua.webp" alt="Hipodoge" />
+        </label>
 
-            <button id="boton-mascota">Seleccionar</button>
-        </section>
+        <input type="radio" name="mascota" id="capipepo" />
+        <label class="tarjeta-mokepon" for="capipepo">
+          <h2>Capipepo</h2>
+          <img src="./assets/fuego.webp" alt="Hipodoge" />
+        </label>
 
-        <section id="seleccionar-ataque">
-            <h2>Elige tu ataque:</h2>
+        <input type="radio" name="mascota" id="ratigueya" />
+        <label class="tarjeta-mokepon" for="ratigueya">
+          <h2>Ratigueya</h2>
+          <img src="./assets/tierra.webp" alt="Hipodoge" />
+        </label>
+      </div>
 
-            <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
-            <p>Las mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
+      <button id="boton-mascota">Seleccionar</button>
+    </section>
 
-            <p>
-                <button id="boton-fuego">Fuego 🔥</button>
-                <button id="boton-agua">Agua 💧</button>
-                <button id="boton-tierra">Tierra 🌱</button>
-            </p>
-        </section>
+    <section id="seleccionar-ataque">
+      <h1 class="title">Mokepon</h1>
 
-        <section id="mensajes">
-        </section>
+      <h2 class="subtitulo">Elige tu ataque:</h2>
+
+      <div class="tarjeta-ataques">
+        <button class="boton-ataque" id="boton-fuego">Fuego 🔥</button>
+        <button class="boton-ataque" id="boton-agua">Agua 💧</button>
+        <button class="boton-ataque" id="boton-tierra">Tierra 🌱</button>
+      </div>
+
+      <div id="mensajes">
+        <p id="resultado">Mucha Suerte?</p>
 
         <section id="reiniciar">
-            <button id="boton-reiniciar">Reiniciar</button>
+          <button id="boton-reiniciar">Reiniciar</button>
         </section>
+      </div>
 
-				<script src="./js/mokepon.js"></script>
-    </body>
+      <div class="ataques">
+        <div class="jugador">
+          <h2 class="vida">
+            Vidas
+            <p id="vidas-jugador">3</p>
+          </h2>
+          <h3><p id="mascota-jugador"></p></h3>
+          <div id="ataques-Jugador"></div>
+        </div>
+        <div class="enemigo">
+          <h2 class="vida">
+            Vidas
+            <p id="vidas-enemigo">3</p>
+          </h2>
+          <h3><p id="mascota-enemigo"></p></h3>
+          <div id="ataques-Enemigo"></div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./js/mokepon.js"></script>
+  </body>
 </html>

@@ -1,0 +1,168 @@
+*{
+	margin: 0;
+}
+
+body {
+	background-image: url(./assets/Escenario.jpg);
+}
+
+.title {
+	color: lightcoral;
+	width: 310px;
+	height: 50px;
+	background-color: rgba(74, 244, 244, 0.703);
+	text-align: center;
+	align-content: center;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.subtitulo {
+	font-size: 30px;
+	margin: 40px 0 40px 0;
+}
+
+h2 {
+	color: rgb(40, 246, 246);
+	font-size: 30px;
+	font-weight: bolder;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.mascotas {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.tarjetas, .tarjeta-ataques{
+	display: flex;
+	gap: 10px;
+}
+
+
+.tarjeta-mokepon {
+	width: 200px;
+	height: 220px;
+	padding: 10px;
+	box-sizing: border-box;
+	align-items: center;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+label {
+	color: rgb(40, 246, 246);
+	text-align: center;
+	align-content: center;
+	font-size: 25px;
+	font-style: oblique;
+	border-radius: 10px;
+	font-weight: 900;
+}
+
+.tarjeta-mokepon img {
+	width: 130px;
+	border-radius: 20px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
+input {
+	visibility: hidden;
+}
+
+input:checked + label{
+	background-color: #578FCA;
+}
+
+#boton-mascota {
+	margin-top: 30px;
+	border: 1px solid rgb(138, 203, 246);
+	border-radius: 10px;
+	width: 280px;
+	height: 60px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgba(74, 244, 244, 0.671);
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+}
+
+#seleccionar-ataque {
+	flex-direction: column;
+	align-items: center;
+	height: 120vh;
+}
+
+.boton-ataque {
+	margin-bottom: 50px;
+	margin-left: 15px;
+	border: 1px solid rgb(138, 203, 246);
+	border-radius: 10px;
+	width: 230px;
+	height: 60px;
+	background-color: rgba(74, 244, 244, 0.671);
+	color: rgb(255, 255, 255);
+	font-size: 22px;
+	cursor: pointer;
+}
+
+#mensajes {
+	width: 280px;
+	background-color: white;
+	padding: 20px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#boton-reiniciar {
+	border: none;
+	width: 150px;
+	height: 40px;
+	border-radius: 15px;
+	cursor: pointer;
+	margin-top: 15px;
+	color: aqua;
+	background-color: white;
+	font-size: 20px;
+}
+
+.ataques {
+	display: grid;
+	grid-template-columns: 200px 200px;
+	gap: 20px;
+	text-align: center;
+}
+
+.vida {
+	background-color: aqua;
+	color: white;
+	text-align: center;
+}
+
+.jugador, .enemigo{
+	background-color: rgba(74, 244, 244, 0.671);
+	display: flex;
+	flex-direction: column;
+}
+
+
+@media (max-width: 360px) {
+
+	.tarjetas, .tarjeta-ataques{
+		flex-direction: column;
+	}
+
+	.mascotas {
+		height: 190vh;
+		margin-top: -20px;
+	}
+
+}

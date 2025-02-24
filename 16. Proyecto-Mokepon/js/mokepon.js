@@ -24,7 +24,7 @@ function seleccionarMascotaJugador() {
   );
   sectionSeleccionarMascota.style.display = "none";
   let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
-  sectionSeleccionarAtaque.style.display = "block";
+  sectionSeleccionarAtaque.style.display = "flex";
   let inputHipodoge = document.getElementById("hipodoge");
   let inputCapipepo = document.getElementById("capipepo");
   let inputRatigueya = document.getElementById("ratigueya");
@@ -106,22 +106,23 @@ function revisarVidas() {
   }
 }
 function crearMensaje(resultado) {
-  let sectionMensajes = document.getElementById("mensajes");
-  let parrafo = document.createElement("p");
-  parrafo.innerHTML =
-    "Tu mascota atacó con " +
-    ataqueJugador +
-    ", las mascota del enemigo atacó con " +
-    ataqueEnemigo +
-    "- " +
-    resultado;
-  sectionMensajes.appendChild(parrafo);
+  let sectionMensajes = document.getElementById("resultado");
+  let ataquesDelJugador = document.getElementById("ataques-Jugador");
+  let ataquesDelEnemigo = document.getElementById("ataques-Enemigo");
+
+  let nuevoataquejugador = document.createElement("p");
+  let nuevoataquedelEnemigo = document.createElement("p");
+
+  sectionMensajes.innerHTML = resultado;
+  nuevoataquejugador.innerHTML = ataqueJugador;
+  nuevoataquedelEnemigo.innerHTML = ataqueEnemigo;
+
+  ataquesDelJugador.appendChild(nuevoataquejugador);
+  ataquesDelEnemigo.appendChild(nuevoataquedelEnemigo);
 }
 function crearMensajeFinal(resultadoFinal) {
-  let sectionMensajes = document.getElementById("mensajes");
-  let parrafo = document.createElement("p");
-  parrafo.innerHTML = resultadoFinal;
-  sectionMensajes.appendChild(parrafo);
+  let sectionMensajes = document.getElementById("resultado");
+  sectionMensajes.innerHTML = resultadoFinal;
   let botonFuego = document.getElementById("boton-fuego");
   botonFuego.disabled = true;
   let botonAgua = document.getElementById("boton-agua");
