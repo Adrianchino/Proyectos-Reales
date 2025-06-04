@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: rgb(25, 169, 169);
+}
+
+.active {
+  color: palevioletred;
+  font-weight: bold;
+}
+
+a:hover {
+  color: palevioletred;
+  font-weight: bold;
+}
