@@ -13,18 +13,12 @@ type Movimiento = {
 type MovementListProps = {
   movimientos: Movimiento[];
   eliminarMovimiento: (id: string) => void;
-  editarMovimiento: (
-    id: string,
-    nuevoMonto: number,
-    nuevoConcepto: string
-  ) => void;
   iniciarEdicion: (movimiento: Movimiento) => void;
 };
 
 export default function MovementList({
   movimientos,
   eliminarMovimiento,
-  editarMovimiento,
   iniciarEdicion,
 }: MovementListProps) {
   const [movimientoSeleccionado, setMovimientoSeleccionado] = useState<
@@ -75,7 +69,7 @@ export default function MovementList({
                 }
               >
                 {movimiento.tipo === "entrada" ? "+" : "-"} S/{" "}
-                {movimiento.monto.toFixed(2)}
+                {movimiento.monto}
               </Text>
             </Pressable>
 

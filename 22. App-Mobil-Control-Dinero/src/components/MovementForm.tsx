@@ -31,9 +31,9 @@ export default function MovementForm({
       <TextInput
         style={styles.input}
         placeholder="Ingresa un monto"
-        keyboardType="numeric"
         value={monto}
         onChangeText={setMonto}
+        keyboardType="number-pad"
       />
 
       <TextInput
