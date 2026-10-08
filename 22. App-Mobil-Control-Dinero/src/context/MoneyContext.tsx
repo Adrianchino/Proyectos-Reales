@@ -6,7 +6,10 @@ import {
   useState,
 } from "react";
 
-import { cargarMovimientos, guardarMovimientos, } from "../services/movimientos.service";
+import {
+  cargarMovimientos,
+  guardarMovimientos,
+} from "../services/movimientos.service";
 
 export type Movimiento = {
   id: string;
@@ -33,6 +36,7 @@ type MoneyContextType = {
     nuevoMonto: number,
     nuevoConcepto: string
   ) => void;
+  restaurarMovimientos: (movimientos: Movimiento[]) => void;
 };
 
 const MoneyContext = createContext<MoneyContextType | undefined>(undefined);
@@ -124,6 +128,10 @@ export function MoneyProvider({ children }: MoneyProviderProps) {
     );
   };
 
+  const restaurarMovimientos = (movimientosImportados: Movimiento[]) => {
+    setMovimientos(movimientosImportados);
+  };
+
   return (
     <MoneyContext.Provider
       value={{
@@ -135,6 +143,7 @@ export function MoneyProvider({ children }: MoneyProviderProps) {
         agregarMovimiento,
         eliminarMovimiento,
         editarMovimiento,
+        restaurarMovimientos,
       }}
     >
       {children}

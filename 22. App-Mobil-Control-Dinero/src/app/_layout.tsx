@@ -1,10 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
+import { NavigationBar } from "expo-navigation-bar";
 import { Tabs } from "expo-router";
 import { MoneyProvider } from "../context/MoneyContext";
 
 export default function Layout() {
   return (
     <MoneyProvider>
+      <NavigationBar hidden />
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: "#2563eb",
