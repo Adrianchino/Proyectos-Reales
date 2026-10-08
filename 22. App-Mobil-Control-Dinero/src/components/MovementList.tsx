@@ -33,64 +33,70 @@ export default function MovementList({
         style={styles.historyScroll}
         showsVerticalScrollIndicator={true}
       >
-        {movimientos.map((movimiento) => (
-          <View key={movimiento.id}>
-            <Pressable
-              style={styles.movement}
-              onPress={() =>
-                setMovimientoSeleccionado(
-                  movimientoSeleccionado === movimiento.id
-                    ? null
-                    : movimiento.id
-                )
-              }
-            >
-              <View>
-                <Text>
-                  {movimiento.tipo === "entrada"
-                    ? "➕ Agregado"
-                    : "➖ Retirado"}
-                </Text>
-
-                <Text style={styles.concepto}>{movimiento.concepto}</Text>
-
-                <Text style={styles.date}>
-                  {movimiento.fecha.toLocaleDateString()} •{" "}
-                  {movimiento.fecha.toLocaleTimeString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
-                </Text>
-              </View>
-
-              <Text
-                style={
-                  movimiento.tipo === "entrada" ? styles.entrada : styles.salida
+        {movimientos.length === 0 ? (
+          <Text style={styles.emptyText}>🔎 No se encontraron movimientos</Text>
+        ) : (
+          movimientos.map((movimiento) => (
+            <View key={movimiento.id}>
+              <Pressable
+                style={styles.movement}
+                onPress={() =>
+                  setMovimientoSeleccionado(
+                    movimientoSeleccionado === movimiento.id
+                      ? null
+                      : movimiento.id
+                  )
                 }
               >
-                {movimiento.tipo === "entrada" ? "+" : "-"} S/{" "}
-                {movimiento.monto}
-              </Text>
-            </Pressable>
+                <View>
+                  <Text>
+                    {movimiento.tipo === "entrada"
+                      ? "➕ Agregado"
+                      : "➖ Retirado"}
+                  </Text>
 
-            {movimientoSeleccionado === movimiento.id && (
-              <View style={styles.actions}>
-                <Pressable
-                  onPress={() => {
-                    iniciarEdicion(movimiento);
-                    setMovimientoSeleccionado(null);
-                  }}
+                  <Text style={styles.concepto}>{movimiento.concepto}</Text>
+
+                  <Text style={styles.date}>
+                    {movimiento.fecha.toLocaleDateString()} •{" "}
+                    {movimiento.fecha.toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </Text>
+                </View>
+
+                <Text
+                  style={
+                    movimiento.tipo === "entrada"
+                      ? styles.entrada
+                      : styles.salida
+                  }
                 >
-                  <Text>✏️ Editar</Text>
-                </Pressable>
+                  {movimiento.tipo === "entrada" ? "+" : "-"} S/{" "}
+                  {movimiento.monto}
+                </Text>
+              </Pressable>
 
-                <Pressable onPress={() => eliminarMovimiento(movimiento.id)}>
-                  <Text>🗑️ Eliminar</Text>
-                </Pressable>
-              </View>
-            )}
-          </View>
-        ))}
+              {movimientoSeleccionado === movimiento.id && (
+                <View style={styles.actions}>
+                  <Pressable
+                    onPress={() => {
+                      iniciarEdicion(movimiento);
+                      setMovimientoSeleccionado(null);
+                    }}
+                  >
+                    <Text>✏️ Editar</Text>
+                  </Pressable>
+
+                  <Pressable onPress={() => eliminarMovimiento(movimiento.id)}>
+                    <Text>🗑️ Eliminar</Text>
+                  </Pressable>
+                </View>
+              )}
+            </View>
+          ))
+        )}
       </ScrollView>
     </View>
   );

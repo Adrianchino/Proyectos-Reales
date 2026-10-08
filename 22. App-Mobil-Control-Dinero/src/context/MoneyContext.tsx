@@ -1,4 +1,3 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   createContext,
   ReactNode,
@@ -6,6 +5,8 @@ import {
   useEffect,
   useState,
 } from "react";
+
+import { cargarMovimientos, guardarMovimientos, } from "../services/movimientos.service";
 
 export type Movimiento = {
   id: string;
@@ -46,45 +47,21 @@ export function MoneyProvider({ children }: MoneyProviderProps) {
 
   // Cargar movimientos guardados
   useEffect(() => {
-    const cargarMovimientos = async () => {
-      try {
-        const movimientosGuardados = await AsyncStorage.getItem("movimientos");
+    const cargarDatos = async () => {
+      const movimientosGuardados = await cargarMovimientos();
 
-        if (movimientosGuardados) {
-          const movimientosParseados = JSON.parse(movimientosGuardados);
-
-          const movimientosConFecha = movimientosParseados.map(
-            (movimiento: Movimiento) => ({
-              ...movimiento,
-              fecha: new Date(movimiento.fecha),
-            })
-          );
-
-          setMovimientos(movimientosConFecha);
-        }
-      } catch (error) {
-        console.log("Error al cargar movimientos:", error);
-      } finally {
-        setCargando(false);
-      }
+      setMovimientos(movimientosGuardados);
+      setCargando(false);
     };
 
-    cargarMovimientos();
+    cargarDatos();
   }, []);
 
   // Guardar movimientos
   useEffect(() => {
     if (cargando) return;
 
-    const guardarMovimientos = async () => {
-      try {
-        await AsyncStorage.setItem("movimientos", JSON.stringify(movimientos));
-      } catch (error) {
-        console.log("Error al guardar movimientos:", error);
-      }
-    };
-
-    guardarMovimientos();
+    guardarMovimientos(movimientos);
   }, [movimientos, cargando]);
 
   // Calcular saldo

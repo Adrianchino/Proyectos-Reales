@@ -55,4 +55,10 @@ export const styles = StyleSheet.create({
     gap: 25,
     paddingVertical: 10,
   },
+  emptyText: {
+    textAlign: "center",
+    color: "#64748b",
+    fontSize: 16,
+    marginTop: 30,
+  },
 });
